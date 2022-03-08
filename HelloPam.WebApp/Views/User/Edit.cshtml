@@ -1,0 +1,27 @@
+﻿@model HelloPam.WebApp.Models.UserModel
+@using (Html.BeginForm("Edit", "User", FormMethod.Post))
+{
+    <div>
+        @Html.ValidationSummary();
+    </div>
+    <div class="form-floating mb-2">
+        @Html.TextBoxFor(x => x.Fullname, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Fullname)
+    </div>
+    <div class="form-floating mb-2">
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Username)
+    </div>
+    <div class="form-floating mb-2">
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", value = Model.Password })
+        @Html.LabelFor(x => x.Password)
+    </div>
+    <div class="form-floating mb-2">
+        @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control", value = Model.Password })
+        @Html.LabelFor(x => x.ConfirmPassword)
+    </div>
+    <div class="form-floating mb-2">
+        @Html.DropDownListFor(x => x.Profile, Model.Profiles, "Choose profile", new { @class = "form-control" })
+        @Html.LabelFor(x => x.Profile)
+    </div>
+}
